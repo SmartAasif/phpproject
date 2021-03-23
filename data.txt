@@ -1,0 +1,126 @@
+Aasif Ali,121aasifali@gmail.com,8912312312,Roorkee
+Manmeet,Manmeet@gmail.com,8912312712,Chandigarh
+nikhil,nikhil@gmail.com,891231232,Chandigarh
+shubham,shubham@gmail.com,8912312812,Chandigarh
+shivangi,shivangi@gmail.com,8912312812,lucknow
+
+
+
+
+
+     <?php
+                                                        require_once "dbcon.php";
+                                                        $result = mysqli_query($conn, "SELECT * FROM countries");
+                                                        while ($row = mysqli_fetch_array($result)) {
+                                                        ?>
+                                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?> </option>
+                                                        <?php } ?>
+
+
+
+
+
+
+  <?php
+                                                        require_once "dbcon.php";
+                                                        $result = mysqli_query($conn, "SELECT * FROM countries");
+                                                        while ($row = mysqli_fetch_array($result)) {
+                                                        ?>
+                                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?> </option>
+                                                        <?php } ?>
+
+
+
+
+                                        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registration Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table" id="mytbl">
+                        <form id="form1" method="POST" class="bg-muted">
+                            <!-- <div class="container"> -->
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col-8 pt-3">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                            <label>Full Name</label>
+                                                <div class="input-group"><input id="name" name="name" placeholder="Name" class="form-control" value="" type="text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Email</label>
+                                            <div class="col-md-12">
+                                                <div class="input-group"><input id="email" name="email" placeholder="Email" class="form-control" value="" type="text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Phone</label>
+                                            <div class="col-md-12">
+                                                <div class="input-group"><input id="phone" name="phone" placeholder="Phone" class="form-control" value="" type="text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Country</label>
+                                            <div class="col-md-12">
+                                                <div class="input-group">
+                                                    <select id="country" name="country" class="selectpicker form-control">
+                                                        <option value="">Select Country</option>
+                                                        <?php
+                                                        require_once "dbcon.php";
+                                                        $result = mysqli_query($conn, "SELECT * FROM countries");
+                                                        while ($row = mysqli_fetch_array($result)) {
+                                                        ?>
+                                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name'], $row['id']; ?> </option>
+                                                        <?php } ?>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">State</label>
+                                            <div class="col-md-12">
+                                                <div class="input-group">
+                                                    <select id="state" name="state" class="selectpicker form-control">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">City</label>
+                                            <div class="col-md-12">
+                                                <div class="input-group">
+                                                    <select id="city" name="city" class="selectpicker form-control">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="col-md-5 control-label" id="message"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-8 control-label"></label>
+                                            <button class="btn btn-success" id="btn-submit">Submit</button>
+                                            <!-- <button type="button" class="btn btn-danger" id="btn-close">Close</button> -->
+                                        </div>
+
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
+
+                            <!-- </div> -->
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
